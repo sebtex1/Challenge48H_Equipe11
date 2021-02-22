@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
 @app.route("/") 
 def home(): 
-    varMatch = { "$match": {"chemin": "Ambiance/01.jpg"}}
-    varProject = { "$project": {"_id": 0}}
+    varMatch = { "$match": {"$and": [{"tags": "Produit"}]} }
+    varProject = { "$project": {"nom": 1, "chemin": 1, "tags": 1, "_id": 0}}
     # varSort = {}
-    items = mongo.db.Photos.aggregate([varMatch, varProject])
+    items = mongo.db.Photos.aggregate([varProject])
     resp = dumps(items)
     jsonData = json.loads(resp)
     return render_template('pages/page.html', jsonData = jsonData)
