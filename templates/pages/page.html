@@ -23,24 +23,22 @@
             </form>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">A mettre</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec produit</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">A mettre</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec humain</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">A mettre</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Photo institutionnelle</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">A mettre</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">A mettre</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
               </div>
         </nav>
-        {{ jsonData }}
+        {% for data in jsonData %}
+       <img src="static/{{data.chemin}}">
+        {% endfor %}
         {% endblock %}
