@@ -5,17 +5,20 @@ import json
 
 app = Flask(__name__) 
 
-app.config['MONGO_URI'] = "mongodb+srv://admin:admin@ynovbdd.ayg81.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+app.config['MONGO_URI'] = "mongodb+srv://admin:admin@ynovbdd.ayg81.mongodb.net/PhotosBDD"
 
 mongo = PyMongo(app)
 
+if __name__ == "__main__":
+    app.run(debug=False)
+
 @app.route("/") 
 def home(): 
-    varMatch = {}
-    varProject = {}
-    varSort = {}
-    all = mongo.db.Photos.aggregate([varMatch, varProject, varSort])
-    resp = dumps(all)
+    varMatch = { "$match": {"chemin": "Ambiance/01.jpg"}}
+    varProject = { "$project": {"_id": 0}}
+    # varSort = {}
+    items = mongo.db.Photos.aggregate([varMatch, varProject])
+    resp = dumps(items)
     jsonData = json.loads(resp)
     return render_template('pages/page.html', jsonData = jsonData)
 
@@ -26,4 +29,3 @@ def login():
     if "submit" in request.form:
         return redirect('/')
 
-app.run(debug = True)
