@@ -12,7 +12,8 @@ mongo = PyMongo(app)
 if __name__ == "__main__":
     app.run(debug=False)
 
-@app.route("/") 
+@app.route("/")
+@app.route("/page") 
 def home(): 
     varMatch = { "$match": {"$and": [{"tags": "Produit"}]} }
     varProject = { "$project": {"nom": 1, "chemin": 1, "tags": 1, "_id": 0}}
