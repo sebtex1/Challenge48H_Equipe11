@@ -38,6 +38,7 @@
                 <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
               </div>
         </nav>
+        {{jsonData}}
         {% for data in jsonData %}
        <img src="static/{{data.chemin}}">
         {% endfor %}
