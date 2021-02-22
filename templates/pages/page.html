@@ -44,18 +44,11 @@
         <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
     </div>
 </nav>
-<script>
-    function myFunction(){
-
-    }
-</script>
 {% for data in jsonData %}
 <div class="card" style="width: 20rem;">
-    <img src="static/{{data.chemin}}" style="width: 20rem; height: 30rem; object-fit: cover; ">
+    <img src="static/{{data.chemin}}" style="height: 30rem; object-fit: scale-down; ">
     <div class="card-body">
         <a class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/login';" target="_blank">{{data.nom}}</a>
-        <p id="{{path}}"></p>
-        <p id="{{name}}"></p>
     </div>
 </div>
 
