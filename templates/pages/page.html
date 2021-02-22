@@ -2,43 +2,62 @@
 {% block body %}
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<style>
+<style scoped>
     .form-inline {
         margin-right: auto;
         margin-top: auto;
         margin-bottom: auto;
     }
+
     .form-check {
-        margin-left:0.5em;
+        margin-left: 0.5em;
         margin-right: auto;
+    }
+
+    .card {
+        display: -webkit-inline-flex;
     }
 </style>
 
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control" type="search" placeholder="Rechercher" aria-label="Rechercher">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-            </form>
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec produit</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec humain</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Photo institutionnelle</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
-              </div>
-        </nav>
-        {% for data in jsonData %}
-       <img src="static/{{data.chemin}}">
-        {% endfor %}
-        {% endblock %}
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Rechercher" aria-label="Rechercher">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec produit</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec humain</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Photo institutionnelle</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
+    </div>
+</nav>
+<script>
+    function myFunction(){
+
+    }
+</script>
+{% for data in jsonData %}
+<div class="card" style="width: 20rem;">
+    <img src="static/{{data.chemin}}" style="width: 20rem; height: 30rem; object-fit: cover; ">
+    <div class="card-body">
+        <a class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/login';" target="_blank">{{data.nom}}</a>
+        <p id="{{path}}"></p>
+        <p id="{{name}}"></p>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
