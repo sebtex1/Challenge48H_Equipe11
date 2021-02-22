@@ -11,13 +11,13 @@ mongo = PyMongo(app)
 
 @app.route("/") 
 def home(): 
-    varMatch = {}
-    varProject = {}
-    varSort = {}
-    all = mongo.db.Photos.aggregate([varMatch, varProject, varSort])
-    resp = dumps(all)
-    jsonData = json.loads(resp)
-    return render_template('pages/page.html', jsonData = jsonData)
+   # varMatch = {}
+    # varProject = {}
+    # varSort = {}
+    items = mongo.db.Photos.find_one
+    # resp = dumps(all)
+    # jsonData = json.loads(resp)
+    return render_template('pages/page.html', jsonData = items)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
