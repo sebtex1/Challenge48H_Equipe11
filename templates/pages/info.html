@@ -54,6 +54,48 @@
         {% endif %}
     </option>
     </select></p>
+
+    <p>Photo avec humain : 
+        <select name="humain" class="form-control" id="humain" aria-label="Default select example">
+        <option selected value="{{data.humain}}">
+            {% if data.humain == true %}
+                Oui
+                <option value="false">Non</option>
+            {% endif %}
+            {% if data.humain == false %}
+                Non
+                <option value="true">Oui</option>
+            {% endif %}
+        </option>
+        </select></p>
+
+        <p>Photo institutionnelle : 
+            <select name="institutionnelle" class="form-control" id="institutionnelle" aria-label="Default select example">
+            <option selected value="{{data.institutionnelle}}">
+                {% if data.institutionnelle == true %}
+                    Oui
+                    <option value="false">Non</option>
+                {% endif %}
+                {% if data.institutionnelle == false %}
+                    Non
+                    <option value="true">Oui</option>
+                {% endif %}
+            </option>
+            </select></p>
+
+            <p>Format photo : 
+                <select name="format" class="form-control" id="format" aria-label="Default select example">
+                <option selected value="{{data.institutionnelle}}">
+                    {% if data.format == true %}
+                        Verticale
+                        <option value="false">Horizontale</option>
+                    {% endif %}
+                    {% if data.format == false %}
+                        Horizontale
+                        <option value="true">Verticale</option>
+                    {% endif %}
+                </option>
+                </select></p>
     
 
 
@@ -61,17 +103,17 @@
 <script>
     function nameFunction() {
         document.getElementById("textarea1").innerHTML =
-            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
+            "<textarea cols = '2' rows = '2' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
     }
 
     function cheminFunction() {
         document.getElementById("textarea2").innerHTML =
-            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
+            "<textarea cols = '2' rows = '2' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
     }
 
     function tagsFunction() {
         document.getElementById("textarea3").innerHTML =
-            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical'  placeholder='Entrer la modification'></textarea>";
+            "<textarea cols = '2' rows = '2' name='textarea1' id='text1_id' class='form-control' style='resize:vertical'  placeholder='Entrer la modification'></textarea>";
     }
 </script>
 {% endfor %}
