@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+{% block body %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style scoped>
+p {
+    text-align: center;
+}
+.upl {
+    text-align: center;
+}
+</style>
+<p> Upload File </p>
+<div class="upl">
+<input type="file"
+    id="avatar" name="avatar"
+    accept="image/*,.pdf">
+    <br>
+    <br>
+<button type="submit">upload</button>
+</div>
+{% endblock %}

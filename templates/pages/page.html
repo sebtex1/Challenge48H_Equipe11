@@ -5,6 +5,9 @@
 </head>
 
 <style scoped>
+    .navbar {
+        size: 10em;
+    }
     .form-inline {
         margin-right: auto;
         margin-top: auto;
@@ -12,11 +15,23 @@
     }
 
     .form-check {
-        margin-left: 0.5em;
+        margin-left: 0.1em;
         margin-right: auto;
     }
     .card {
         display: -webkit-inline-flex;
+    }
+    .form-check {
+        display: -webkit-inline-flex;
+        text-align: center;
+        padding-right: 200px;
+    }
+    .button {
+        position: absolute; 
+        right: 0;
+    }
+    .select {
+        padding-left: 40px;
     }
 </style>
 
@@ -24,24 +39,74 @@
     <form class="form-inline">
         <input class="form-control" name="nom" type="search" placeholder="Rechercher" aria-label="Rechercher">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+        <div class="select">
+        <select class="form-select" aria-label="Default select example">
+            <option selected disabled>Tag principaux</option>
+            <option value="produit">Produit</option>
+            <option value="ambiance">Ambiance</option>
+            <option selected disabled>Tag secondaire</option>
+            <option value="aperitif">Aperitif</option>
+            <option value="entree">Entree</option>
+            <option value="plat">Plat</option>
+            <option value="desserts">Dessert</option>
+            <option selected disabled>Tag produit secondaire</option>
+            <option value="viande">Viande</option>
+            <option value="fromage">Fromage</option>
+            <option value="plat">Plat</option>
+            <option value="fruit-de-mer">Fruit de mer</option>
+            <option value="poisson">Poisson</option>
+            <option value="pain">Pain</option>
+            <option value="salade">Salade</option>
+            <option value="puree">Puree</option>
+            <option value="assaisonnement">Assaisonnement</option>
+            <option value="fruit">Fruit</option>
+            <option selected disabled>Tag ambiance secondaire</option>
+            <option value="repas">Repas</option>
+            <option value="preparation">Preparation</option>
+            <option value="presentation">Presentation</option>
+            <option value="produit">Produit</option>
+            <option value="logo">Logo</option>
+            <option value="paysage">Paysage</option>
+            <option value="lieu">Lieu</option>
+            <option value="elevage">Elevage</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="entrepot">Entrepot</option>
+            <option value="digital">Digital</option>
+            <option value="equipe">Equipe</option>
+          </select>
+        </div>
+        <form>
+            <div class="button">
+            <a href="http://127.0.0.1:5000/upload"><button type="button" actio class="btn btn-outline-primary">Upload</button></a>
+        </div>
+        </form>
+    </nav>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Photo avec produit
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          Photo avec humain
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+            Photo institutionnelle
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+            Photo avec droits d'utilisation
+        </label>
+      </div>
     </form>
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec produit</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Photo avec humain</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Photo institutionnelle</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Droits d’utilisation limités</label>
-    </div>
-</nav>
+    
 <h4>{{ message }}</h4>
 {% for data in jsonData %}
 <div class="card" style="width: 20rem;">
