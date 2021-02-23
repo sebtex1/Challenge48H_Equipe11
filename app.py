@@ -41,7 +41,7 @@ def home():
         return render_template('pages/page.html', jsonData = jsonData)
 
     if request.method == 'GET':
-        message = "Executez donc une recherche de photos"
+        message = "Aucune photo recherchée"
         return render_template('pages/page.html', message=message)
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -62,3 +62,7 @@ def info():
     # if request.method == 'GET':
     #     return render_template('pages/info.html')
     return render_template('pages/info.html', jsonData = jsonData)
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    return render_template('pages/upload.html',)

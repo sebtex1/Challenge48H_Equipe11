@@ -25,12 +25,15 @@
         width: 150px;
         display: inline;
     }
+    .button {
+        text-align: center;
+    }
 </style>
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-menu" href="http://127.0.0.1:5000/photos">Menu</a>
 </nav>
 <br>
-<p>Information de l'image</p>
+<p>Information / Modification de l'image</p>
 {% for data in jsonData %}
 <div class="card" style="width: 35rem;">
     <img src="static/{{data.chemin}}" style="object-fit: scale-down; "></div>
@@ -96,8 +99,25 @@
                     {% endif %}
                 </option>
                 </select></p>
-    
 
+                <p>Droits d'utilisation : 
+                    <select name="droitsUtilisation" class="form-control" id="droitsUtilisation" aria-label="Default select example">
+                    <option selected value="{{data.institutionnelle}}">
+                        {% if data.droitsUtilisation == true %}
+                            Oui
+                            <option value="false">Non</option>
+                        {% endif %}
+                        {% if data.droitsUtilisation == false %}
+                            Non
+                            <option value="true">Oui</option>
+                        {% endif %}
+                    </option>
+                    </select></p>
+                    <div class="button">
+                        <form method="POST" action="http://127.0.0.1:5000/upload"
+                    <button type="submit" class="btn btn-outline-primary">Sauvegarder</button>
+                </div>
+                <br>
 
 
 <script>
@@ -108,12 +128,12 @@
 
     function cheminFunction() {
         document.getElementById("textarea2").innerHTML =
-            "<textarea cols = '2' rows = '2' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
+            "<textarea cols = '2' rows = '2' name='textarea2' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
     }
 
     function tagsFunction() {
         document.getElementById("textarea3").innerHTML =
-            "<textarea cols = '2' rows = '2' name='textarea1' id='text1_id' class='form-control' style='resize:vertical'  placeholder='Entrer la modification'></textarea>";
+            "<textarea cols = '2' rows = '2' name='textarea3' id='text1_id' class='form-control' style='resize:vertical'  placeholder='Entrer la modification'></textarea>";
     }
 </script>
 {% endfor %}
