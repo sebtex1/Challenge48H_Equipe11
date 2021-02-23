@@ -23,7 +23,9 @@ def goToHome():
 def home():
     matchList = {}
     varMatch = {}
+    # Vérification si un requête est présente de l'url
     if request.args:
+        # Vérification si des paramètres particuliers sont présents
         if request.args.get('nom'):
             nom = request.args.get('nom')
             nom.replace('+', ' ')
@@ -35,15 +37,18 @@ def home():
 
         varMatch['$match']=matchList
         varProject = { "$project": { "_id": 1, "nom": 1, "tags": 1, "chemin": 1}}
+        # Création de l'aggregation avec la BDD NoSQL
         items = mongo.db.Photos.aggregate([varMatch, varProject])
         resp = dumps(items)
         jsonData = json.loads(resp)
         return render_template('pages/page.html', jsonData = jsonData)
 
+    # Affichage de la page si aucunze requête est éffectuée
     if request.method == 'GET':
         message = "Aucune photo recherchée"
         return render_template('pages/page.html', message=message)
 
+# Page de login
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -51,6 +56,7 @@ def login():
     if "submit" in request.form:
         return redirect('/photos')
 
+# Page de l'information d'une image
 @app.route("/info", methods=['GET', 'POST'])
 def info():
     chemin = request.args.get('chemin')
@@ -59,10 +65,9 @@ def info():
     resp = dumps(items)
     jsonData = json.loads(resp)
 
-    # if request.method == 'GET':
-    #     return render_template('pages/info.html')
     return render_template('pages/info.html', jsonData = jsonData)
 
+# Page pour upload une image
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
     return render_template('pages/upload.html',)
