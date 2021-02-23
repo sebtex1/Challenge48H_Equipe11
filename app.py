@@ -53,4 +53,12 @@ def login():
 
 @app.route("/info", methods=['GET', 'POST'])
 def info():
-    return render_template('pages/info.html')
+    chemin = request.args.get('chemin')
+    varMatch = { "$match": { "chemin": chemin}}
+    items = mongo.db.Photos.aggregate([varMatch])
+    resp = dumps(items)
+    jsonData = json.loads(resp)
+
+    # if request.method == 'GET':
+    #     return render_template('pages/info.html')
+    return render_template('pages/info.html', jsonData = jsonData)

@@ -2,7 +2,77 @@
 
 {% block body %}
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style scoped>
+    .card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .navbar-menu {
+        margin-left: 0%;
+        vertical-align: middle;
+    }
+    .form-control {
+        width: 150px;
+        display: inline;
+    }
+</style>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-menu" href="http://127.0.0.1:5000/photos">Menu</a>
+</nav>
+<br>
+<p>Information de l'image</p>
+{% for data in jsonData %}
+<div class="card" style="width: 35rem;">
+    <img src="static/{{data.chemin}}" style="object-fit: scale-down; "></div>
+<br>
+<p>Nom : {{data.nom}} <a href="#" id="name" onclick="nameFunction()">Modifier</a></p>
+<p id="textarea1"></p>
+<p>Chemin : {{data.chemin}} <a href="#" id="chemin" onclick="cheminFunction()">Modifier</a></p>
+<p id="textarea2"></p>
+<p>Tags : {{data.tags}} <a href="#" id="tags" onclick="tagsFunction()">Modifier</a></p>
+<p id="textarea3"></p>
+<p>Photo avec produit : 
+    <select name="produit" class="form-control" id="produit" aria-label="Default select example">
+    <option selected value="{{data.produit}}">
+        {% if data.produit == true %}
+            Oui
+            <option value="false">Non</option>
+        {% endif %}
+        {% if data.produit == false %}
+            Non
+            <option value="true">Oui</option>
+        {% endif %}
+    </option>
+    </select></p>
+    
 
 
 
+<script>
+    function nameFunction() {
+        document.getElementById("textarea1").innerHTML =
+            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
+    }
+
+    function cheminFunction() {
+        document.getElementById("textarea2").innerHTML =
+            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical' placeholder='Entrer la modification'></textarea>";
+    }
+
+    function tagsFunction() {
+        document.getElementById("textarea3").innerHTML =
+            "<textarea cols = '1' rows = '1' name='textarea1' id='text1_id' class='form-control' style='resize:vertical'  placeholder='Entrer la modification'></textarea>";
+    }
+</script>
+{% endfor %}
 {% endblock %}
