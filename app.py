@@ -20,11 +20,12 @@ def home():
     if request.args:
         if request.args.get('nom'):
             nom = request.args.get('nom')
+            nom.replace('+', ' ')
             matchList['nom']={'$regex':nom}
 
         if request.args.get('tags'):
             tags = request.args.get('tags')
-            matchList['tags']={"$and": [{"tags": tags}]}
+            matchList['tags']={"$regex": tags}
 
         varMatch['$match']=matchList
         items = mongo.db.Photos.aggregate([varMatch])
