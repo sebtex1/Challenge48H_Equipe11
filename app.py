@@ -51,3 +51,6 @@ def login():
     if "submit" in request.form:
         return redirect('/photos')
 
+@app.route("/info", methods=['GET', 'POST'])
+def info():
+    return render_template('pages/info.html')
