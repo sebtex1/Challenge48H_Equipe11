@@ -44,6 +44,9 @@
     </div>
 </nav>
 <h4>{{ message }}</h4>
+{% for item in tags %}
+    {{ item }}
+{% endfor %}
 {% for data in jsonData %}
 <div class="card" style="width: 20rem;">
     <img src="static/{{data.chemin}}" style="height: 30rem; object-fit: scale-down; ">
