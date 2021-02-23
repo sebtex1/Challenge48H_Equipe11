@@ -4,9 +4,11 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
 </head>
-<style>
-    .btn 
-  {
+<style scoped>
+    body {
+	background-color: rgb(94, 134, 228); 
+}
+    .btn {
    outline:0;
    border:none;
    border-top:none;
@@ -15,22 +17,10 @@
    border-right:none;
    box-shadow:inset 2px -3px rgba(0,0,0,0.15);
   }
-  .btn:focus
-  {
+  .btn:focus {
    outline:0;
    -webkit-outline:0;
    -moz-outline:0;
-  }
-  .fullscreen_bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
-    background-repeat:repeat;
   }
   .form-signin {
     max-width: 280px;
@@ -75,21 +65,24 @@
     border-top:1px solid rgba(0,0,0,0.08);
   }
   .form-signin-heading {
-    color: #fff;
     text-align: center;
-    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    color: rgba(255, 255, 255, 0.816);
   }
+ .img {
+    text-align: center;
+}
+
 </style>
-<div id="fullscreen_bg" class="fullscreen_bg"/>
-
 <div class="container">
-
+    <div class="img">
+    <a href="https://www.passionfroid.fr/" target="_blank"><img src="/static/beauty/logo.png"></a>
+    </div>
 	<form method="POST" class="form-signin" type="submit">
-		<h1 class="form-signin-heading text-muted">Log In</h1>
+		<h1 class="form-signin-heading">Sign In</h1>
 		<input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
 		<input type="password" class="form-control" placeholder="Password" required="">
 		<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">
-			Log In
+			Sign In
 		</button>
 	</form>
 </div>

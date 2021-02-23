@@ -13,6 +13,7 @@ mongo = PyMongo(app)
 if __name__ == "__main__":
     app.run(debug=False)
 
+
 @app.route("/photos", methods=["GET", "POST"])
 def home():
     matchList = {}
@@ -37,7 +38,7 @@ def home():
         message = "Executez donc une recherche de photos"
         return render_template('pages/page.html', message=message)
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template('pages/login.html')
